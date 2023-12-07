@@ -34,9 +34,9 @@ if __name__ == '__main__':
     with open('input.txt') as file:
         lines = [line.strip().split(' ') for line in file]
 
-    faces = {'A':14, 'K':13, 'Q': 12, 'J': 11, 'T': 10,}
+    faces = {'TJQKA'[i]: i + 10 for i in range(5)}
     numbers = {str(i): i for i in range(2, 10)}
-    cardmap = {**faces, **numbers}
+    cardmap = faces | numbers
 
     hands = [[cardmap[card] for card in line[0]] for line in lines]
     bids = [int(line[1]) for line in lines]
